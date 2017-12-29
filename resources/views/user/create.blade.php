@@ -37,8 +37,8 @@
 					{{ Form::password('password_confirmation', ['class' => 'form-control']) }}
 				</div>
 				<div class="form-group">
-					{{ Form::label('full_name', trans('messages.full-name')) }}
-					{{ Form::text('full_name', Input::old('full_name'), ["placeholder" => "Jay Siku", 
+					{{ Form::label('name', trans('messages.name')) }}
+					{{ Form::text('name', Input::old('name'), ["placeholder" => "Jay Siku", 
 						'class' => 'form-control']) }}
 				</div>
 				<div class="form-group">

@@ -10,7 +10,7 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading ">
 			<span class="glyphicon glyphicon-user"></span>
-			{{trans('messages.user-details')}}
+			{{trans('messages.user->details')}}
 			<div class="panel-btn">
 				<a class="btn btn-sm btn-info" href="{{ URL::to("user/". $user->id ."/edit") }}">
 					<span class="glyphicon glyphicon-edit"></span>

@@ -107,9 +107,11 @@ return [
     'patient-details' => 'Patient Details',
     'patient-id' => 'Patient ID',
     'patient-search-button' => 'Go!',
-    'patient-number' => 'Patient No.',
-    'phone-number' => 'Phone Number',
+    'patient-number' => 'Patient NID',
+    'phone-number' => 'Contact',
     'physical-address' => 'Physical Address',
+    'next-button' => 'Next',
+    'cancel-button' => 'Cancel',
     
     /** 
      *   Specimen
@@ -706,7 +708,7 @@ return [
     'add-new'       =>      'Add New',
     'crit-val'      =>      'Critical Values',
 
-];
+
 
 
     'abbreviation'  =>      'Abbreviation',
@@ -720,5 +722,5 @@ return [
     'volume'          =>    'Volume',
     'date-collected'  =>    'Date Collected',
     'blood-details'   =>    'Blood Details',
-);
+];
 

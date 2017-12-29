@@ -43,7 +43,15 @@ class PatientController extends Controller {
 	public function create()
 	{
 		//Create Patient
-		$lastInsertId = DB::table('patients')->max('id')+1;
+		// $lastInsertId = DB::table('patients')->max('id')+1;
+		$lastInsertId = null;
+		while(true){
+			$lastInsertId = rand(10000000, 99999999).'/'.rand(10,99).'/'.rand(10000, 99999);
+			$exist_nid = Patient::where('patient_number', $lastInsertId)->get();
+			if(!count($exist_nid))
+				break;
+		}
+
 		return view('patient.create')->with('lastInsertId', $lastInsertId);
 	}
 
@@ -67,7 +75,7 @@ class PatientController extends Controller {
 		$patient->save();
         $url = session('SOURCE_URL');
 
-        return redirect()->to($url)->with('message', trans('messages.record-successfully-saved'))->with('active_patient', $patient ->id);
+        return redirect('test/create/'.$patient->id)->with('message', trans('messages.record-successfully-saved'))->with('active_patient', $patient ->id);
 	}
 
 	/**

@@ -24,8 +24,7 @@
 			{{ Form::open(array('url' => 'patient', 'id' => 'form-create-patient')) }}
 				<div class="form-group">
 					{{ Form::label('patient_number', trans('messages.patient-number')) }}
-					{{ Form::text('patient_number', $lastInsertId,
-						array('class' => 'form-control')) }}
+					{{ Form::text('patient_number', $lastInsertId) }}
 				</div>
 				<div class="form-group">
 					{{ Form::label('name', trans('messages.names')) }}
@@ -51,12 +50,13 @@
 					{{ Form::label('phone_number', trans('messages.phone-number')) }}
 					{{ Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control')) }}
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					{{ Form::label('email', trans('messages.email-address')) }}
 					{{ Form::email('email', Input::old('email'), array('class' => 'form-control')) }}
-				</div>
-				<div class="form-group actions-row">
-					{{ Form::button('<span class="glyphicon glyphicon-save"></span> '.trans('messages.save'), 
+				</div> -->
+				<div class="form-group" align="right">
+					<a href="{{url('patient')}}" class="btn"><span class="glyphicon glyphicon-remove"></span> {{trans('messages.cancel-button')}}</a>
+					{{ Form::button(trans('messages.next-button').' <span class="glyphicon glyphicon-arrow-right"></span>', 
 						['class' => 'btn btn-primary', 'onclick' => 'submit()']) }}
 				</div>
 

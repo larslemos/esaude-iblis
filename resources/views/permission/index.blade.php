@@ -22,6 +22,7 @@
             </div>
             <div class="panel-body" >
             {{ Form::open(array('route'=>'permission.store'))}}
+            
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>

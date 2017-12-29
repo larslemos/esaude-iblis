@@ -89,7 +89,7 @@
                         <th>{{trans('messages.date-ordered')}}</th>
                         <th>{{trans('messages.patient-number')}}</th>
                         <th>{{trans('messages.visit-number')}}</th>
-                        <th class="col-md-2">{{trans('messages.patient-name')}}</th>
+                        <!-- <th class="col-md-2">{{trans('messages.patient-name')}}</th> -->
                         <th class="col-md-1">{{trans('messages.specimen-id')}}</th>
                         <th>{{ trans_choice('messages.test',1) }}</th>
                         <th>{{trans('messages.visit-type')}}</th>
@@ -113,8 +113,9 @@
                                 $test->visit->id:
                                 $test->visit->visit_number
                             }}</td> <!--Visit Number -->
-                        <td>{{ $test->visit->patient->name.' ('.($test->visit->patient->getGender(true)).',
-                            '.$test->visit->patient->getAge('Y'). ')'}}</td> <!--Patient Name -->
+                        <!-- <td>{{ $test->visit->patient->name.' ('.($test->visit->patient->getGender(true)).',
+                            '.$test->visit->patient->getAge('Y'). ')'}}</td>  -->
+                            <!--Patient Name -->
                         <td>{{ $test->getSpecimenId() }}</td> <!--Specimen ID -->
                         <td>{{ $test->testType->name }}</td> <!--Test-->
                         <td>{{ $test->visit->visit_type }}</td> <!--Visit Type -->

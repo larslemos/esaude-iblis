@@ -48,7 +48,7 @@
 			<thead>
 				<tr>
 					<th>{{trans('messages.patient-number')}}</th>
-					<th>{{trans_choice('messages.name',1)}}</th>
+					<!-- <th>{{trans_choice('messages.name',1)}}</th> -->
 					<th>{{trans('messages.gender')}}</th>
 					<th>{{trans('messages.date-of-birth')}}</th>
 					<th>{{trans('messages.actions')}}</th>
@@ -61,7 +61,7 @@
 					@endif
 				>
 					<td>{{ $patient->patient_number }}</td>
-					<td>{{ $patient->name }}</td>
+					<!-- <td>{{ $patient->name }}</td>	 -->
 					<td>{{ ($patient->gender==0?trans('messages.male'):trans('messages.female')) }}</td>
 					<td>{{ $patient->dob }}</td>
 

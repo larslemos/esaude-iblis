@@ -113,7 +113,9 @@
 										<div class="col-md-3">
 											<p><strong>{{ trans_choice('messages.name',1) }}</strong></p></div>
 										<div class="col-md-9">
-											{{$test->visit->patient->name}}</div></div>
+											<!-- {{$test->visit->patient->name}} -->
+										</div>
+									</div>
 									<div class="row">
 										<div class="col-md-3">
 											<p><strong>{{trans("messages.age")}}</strong></p></div>

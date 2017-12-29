@@ -29,7 +29,7 @@ class PatientRequest extends Request {
             'gender'   => 'required:patients,gender,'.$id,
             'dob'   => 'required:patients,dob,'.$id,
             'address'   => 'required:patients,address,'.$id,
-            'phone_number'   => 'regex:/(01)[0-9]{9}/'
+            'phone_number'   => 'regex:/[0-9]{9}/'
         ];
 	}
 	/**

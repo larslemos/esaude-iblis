@@ -27,7 +27,7 @@ class PatientControllerTest extends TestCase
 		public function setVariables(){
 		// Initial sample storage data
 		$this->input = array(
-			'patient_number' => '6666',//Must be unique!
+			'patient_number' => '68054554/66/75740',//Must be unique!
 			'name' => 'Bob Tzhebuilder',
 			'dob' => '1930-07-05',
 			'gender' => '0',//male
@@ -38,7 +38,7 @@ class PatientControllerTest extends TestCase
 
 		// Edition sample data
 		$this->inputUpdate = array(
-			'patient_number' => '5555',
+			'patient_number' => '68054554/66/75741',
 			'name' => 'Bob Thebuilder',
 			'dob' => '1900-07-05',
 			'gender' => '0',//male

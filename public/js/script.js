@@ -241,7 +241,7 @@ $(function(){
 				output += "<tr>";
 				output += "<td><input type='radio' value='" + obj.id + "' name='pat_id'></td>";
 				output += "<td>" + obj.patient_number + "</td>";
-				output += "<td>" + obj.name + "</td>";
+				// output += "<td>" + obj.name + "</td>";
 				output += "</tr>";
 				cnt++;
 			});

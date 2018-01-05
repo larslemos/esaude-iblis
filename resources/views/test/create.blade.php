@@ -46,13 +46,13 @@
 									<!-- <span><strong>{{ trans_choice('messages.name',1) }}</strong> {{ $patient->name }}</span> -->
 									<span><strong>{{trans("messages.age")}}</strong> {{ $patient->getAge() }}</span>
 									<span><strong>{{trans("messages.gender")}}</strong>
-										{{ $patient->gender==0?trans("messages.male"):trans("messages.female") }}</span>
+										{{ $patient->gender==0?trans("messages.male"):trans("mess	ages.female") }}</span>
 								</div>
 							</div>
 							<div class="form-group">
 								{{ Form::hidden('patient_id', $patient->id) }}
 								{{ Form::label('visit_type', trans("messages.visit-type")) }}
-								{{ Form::select('visit_type', [' ' => '--- Select visit type ---','0' => trans("messages.out-patient"),'1' => trans("messages.in-patient")], null,
+								{{ Form::select('visit_type', [' ' => '--- Select visit type ---','0' => trans("messages.out-patient"),'1' => trans("messages.in-patient"), '2' => trans("messages.emergency-patient")], null,
 									 array('class' => 'form-control')) }}
 							</div>
 							<div class="form-group">
@@ -60,7 +60,12 @@
 								{{Form::text('physician', Input::old('physician'), array('class' => 'form-control'))}}
 							</div>
 							<div class="form-group">
-								{{ Form::label('tests', trans("messages.select-tests")) }}
+								{{ Form::label('provenience', trans("messages.provenience")) }}
+								{{Form::text('provenience', Input::old('provenience'), array('class' => 'form-control'))}}
+							</div>
+							<div class="form-group">
+			
+							{{ Form::label('tests', trans("messages.select-tests")) }}
 								<div class="form-pane">
 
 									<table class="table table-striped table-hover table-condensed search-table">

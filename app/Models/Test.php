@@ -201,6 +201,35 @@ class Test extends Model
     	return substr($testCategoryName, 0 , 3).'-'.$this->specimen->id;
     }
 
+	  /**
+    * Function to get formatted getAccessionNo's e.g AAA-00001
+    *
+    * @return string
+    */
+    public static function getAccessionNo()
+    {
+		$lastTest = Test::orderBy('id', 'DESC')->first();
+		if(count($lastTest->accession_number)){
+			$assessionNo = null;
+			$part1 = 'AAA';
+			$part2 = null;
+			
+			$lastAN = substr($lastTest->accession_number, 3, 7);
+			$part2 = ++$lastAN;
+			$temp_part2 = null;
+			$leghtPart2 = strlen($part2.'');
+			for($i = 0; $i < 5 - $leghtPart2; $i++)
+				$temp_part2 = $temp_part2.'0';
+	
+			$part2 = $temp_part2.$part2;
+	
+			$assessionNo = $part1.$part2;
+			return $assessionNo;
+		}else{
+			return 'AAA00001';
+		}
+    }
+
 	/**
 	 * Wait Time: Time difference from test reception to start
 	 */

@@ -19,7 +19,8 @@ class TestRequest extends Request {
 	public function rules() {
 		return [ 'visit_type' => 'required',
 				 'physician' => 'required',
-			 	 'testtypes' => 'required',
+				  'testtypes' => 'required',
+				  'provenience' => 'required',
 			 	];
 	}
 }

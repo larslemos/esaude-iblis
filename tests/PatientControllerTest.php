@@ -13,7 +13,7 @@ class PatientControllerTest extends TestCase
 	
 	    public function setUp()
 	    {
-	    	parent::setUp();
+	    	parent::setUp();	
 	    	Artisan::call('migrate');
       		Artisan::call('db:seed');
 			$this->setVariables();

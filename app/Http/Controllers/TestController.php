@@ -132,7 +132,7 @@ class TestController extends Controller {
 	public function saveNewTest(TestRequest $request)
 	{
 		//Create New Test
-		$visitType = ['Out-patient','In-patient'];
+		$visitType = ['Out-patient','In-patient', 'Emergency'];
 		$activeTest = array();
 
 		/*
@@ -166,6 +166,8 @@ class TestController extends Controller {
 				$test->test_status_id = Test::PENDING;
 				$test->created_by = Auth::user()->id;
 				$test->requested_by = Input::get('physician');
+				$test->provenience = Input::get('provenience');
+				$test->accession_number = Test::getAccessionNo();
 				$test->save();
 
 				$activeTest[] = $test->id;

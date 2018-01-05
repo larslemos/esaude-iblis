@@ -118,6 +118,7 @@ class TestController extends \BaseController {
 			'visit_type' => 'required',
 			'physician' => 'required',
 			'testtypes' => 'required',
+			'provenience' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -127,7 +128,7 @@ class TestController extends \BaseController {
 				array(Input::get('patient_id')))->withInput()->withErrors($validator);
 		} else {
 
-			$visitType = ['Out-patient','In-patient'];
+			$visitType = ['Out-patient','In-patient', 'Emergency'];
 			$activeTest = array();
 
 			/*
@@ -160,6 +161,7 @@ class TestController extends \BaseController {
 					$test->test_status_id = Test::PENDING;
 					$test->created_by = Auth::user()->id;
 					$test->requested_by = Input::get('physician');
+					$test->provenience = Input::get('provenience');
 					$test->save();
 
 					$activeTest[] = $test->id;

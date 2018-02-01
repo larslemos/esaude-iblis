@@ -316,9 +316,9 @@
                                                 <p><strong>{{trans("messages.specimen-referred-label")}}</strong></p>
                                             </div>
                                             <div class="col-md-8">
-                                                @if($test->specimen->referral->status == Referral::REFERRED_IN)
+                                                @if($test->specimen->referral->status == 0)
                                                     {{ trans("messages.in") }}
-                                                @elseif($test->specimen->referral->status == Referral::REFERRED_OUT)
+                                                @elseif($test->specimen->referral->status == 1)
                                                     {{ trans("messages.out") }}
                                                 @endif
                                             </div>
@@ -379,7 +379,7 @@
                                             <p class="view-striped"><strong>{{trans('messages.physician')}}</strong>
                                                 {{$test->requested_by or trans('messages.unknown') }}</p>
                                             <p class="view-striped"><strong>{{trans('messages.request-origin')}}</strong>
-                                                @if($test->specimen->isReferred() && $test->specimen->referral->status == Referral::REFERRED_IN)
+                                                @if($test->specimen->isReferred() && $test->specimen->referral->status == 0)
                                                     {{ trans("messages.in") }}
                                                 @else
                                                     {{ $test->visit->visit_type }}

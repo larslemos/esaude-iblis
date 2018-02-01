@@ -218,6 +218,7 @@ return [
     'test-category' => 'Lab Section|Lab Sections',
     'test-category-details' => 'Lab Section Details',
     'list-test-categories' => 'List Lab Sections',
+    'profile' => 'Profile',
 
     /* Test Types*/
 

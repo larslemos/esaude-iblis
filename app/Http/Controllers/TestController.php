@@ -16,6 +16,7 @@ use App\Models\Specimen;
 use App\Models\RejectionReason;
 use App\Models\Facility;
 use App\Models\Barcode;
+use App\Models\TestCategory;
 use Input;
 use Response;
 use Auth;
@@ -119,9 +120,10 @@ class TestController extends Controller {
 
 		$testtypes = TestType::where('orderable_test')->orderBy('name', 'asc')->get();
 		$patient = Patient::find($patientID);
+		$testCategories = TestCategory::orderBy('name', 'asc')->get();
 
 		//Load Test Create View
-		return view('test.create', compact('testtypes', 'patient'));
+		return view('test.create', compact('testtypes', 'patient', 'testCategories'));
 	}
 
 	/**
@@ -478,5 +480,10 @@ class TestController extends Controller {
 		$id = Input::get('sId');
 		$spec = Specimen::find($id);
 		return $spec->barcode();
+	}
+
+	public function enterresults()
+	{
+		return view('test.enterResults');	
 	}
 }

@@ -63,9 +63,23 @@
 								{{ Form::label('provenience', trans("messages.provenience")) }}
 								{{Form::text('provenience', Input::old('provenience'), array('class' => 'form-control'))}}
 							</div>
+
 							<div class="form-group">
-			
-							{{ Form::label('tests', trans("messages.select-tests")) }}
+								{{ Form::label('provenience', trans("messages.profile")) }}
+								@foreach($testCategories as $tc)
+								<a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample{{$tc->id}}" aria-expanded="false">
+									{{$tc->name}}
+								</a>
+								@endforeach
+								<!-- <div class="collapse" id="collapseExample">
+								<div class="well">
+									...
+								</div>
+								</div> -->
+							</div>
+							@foreach($testCategories as $tc)
+							<div class="form-group collapse" id="collapseExample{{$tc->id}}">
+								{{ Form::label('tests', trans("messages.select-tests")) }}
 								<div class="form-pane">
 
 									<table class="table table-striped table-hover table-condensed search-table">
@@ -77,7 +91,7 @@
 										</tr>
 									</thead>
 									<tbody>
-									@foreach($testtypes as $key => $value)
+									@foreach($tc->testtypes as $key => $value)
 										<tr>
 											<td>{{ $value->name }}</td>
 											<td><label  class="editor-active">
@@ -88,12 +102,13 @@
 									@endforeach
 									</tbody>
 						            </table>
-				
-								<div class="form-group actions-row">
-								{{ Form::button("<span class='glyphicon glyphicon-save'></span> ".trans('messages.save-test'), 
-									array('class' => 'btn btn-primary', 'onclick' => 'submit()', 'alt' => 'save_new_test')) }}
-								</div>
 						</div>
+					</div>
+					@endforeach
+
+					<div class="form-group" align="right">
+					{{ Form::button("<span class='glyphicon glyphicon-arrow-right'></span> ".trans('messages.save-test'), 
+						array('class' => 'btn btn-primary', 'onclick' => 'submit()', 'alt' => 'save_new_test')) }}
 					</div>
 				</div>
 

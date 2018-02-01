@@ -481,8 +481,9 @@ class TestController extends Controller {
 		return $spec->barcode();
 	}
 
-	public function enterresults()
+	public function enterResults($testID)
 	{
-		return view('test.enterResults');	
+		$test = Test::find($testID);
+		return view('test.enterResults')->with('test', $test);
 	}
 }

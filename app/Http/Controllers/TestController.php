@@ -175,9 +175,8 @@ class TestController extends Controller {
 				$activeTest[] = $test->id;
 			}
 		}
-		$url = session('SOURCE_URL');
 
-        return redirect()->to($url)->with('message', trans('messages.record-successfully-saved'))->with('active_test', $test ->id);
+        return redirect('/test')->with('message', trans('messages.record-successfully-saved'))->with('active_test', $test ->id);
 	}
 
 	/**

@@ -160,9 +160,9 @@
                                         @elseif($test->specimen->isReferred())
                                             <span class='label label-primary'>
                                                 {{trans('messages.specimen-referred-label') }}
-                                                @if($test->specimen->referral->status == Referral::REFERRED_IN)
+                                                @if($test->specimen->referral->status == 0)
                                                     {{ trans("messages.in") }}
-                                                @elseif($test->specimen->referral->status == Referral::REFERRED_OUT)
+                                                @elseif($test->specimen->referral->status == 0)
                                                     {{ trans("messages.out") }}
                                                 @endif
                                             </span>

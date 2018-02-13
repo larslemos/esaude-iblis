@@ -72,7 +72,7 @@
 							<?php
 							$fieldName = "m_".$measure->id;
 							?>
-								@if ( $measure->isNumeric() ) 
+								@if ( $measure->isNumeric() )
 			                        {{ Form::label($fieldName , $measure->name) }}
 			                        {{ Form::text($fieldName, $ans, array(
 			                            'class' => 'form-control result-interpretation-trigger',
@@ -87,7 +87,7 @@
 		                                {{Measure::getRange($test->visit->patient, $measure->id)}}
 		                                {{$measure->unit}}
 		                            </span>
-								@elseif ( $measure->isAlphanumeric() || $measure->isAutocomplete() ) 
+								@elseif ( $measure->isAlphanumeric() || $measure->isAutocomplete() )
 			                        <?php
 			                        $measure_values = array();
 		                            $measure_values[] = '';
@@ -100,9 +100,9 @@
 		                                array('class' => 'form-control result-interpretation-trigger',
 		                                'data-url' => URL::route('test.resultinterpretation'),
 		                                'data-measureid' => $measure->id
-		                                )) 
+		                                ))
 		                            }}
-								@elseif ( $measure->isFreeText() ) 
+								@elseif ( $measure->isFreeText() )
 		                            {{ Form::label($fieldName, $measure->name) }}
 		                            <?php
 										$sense = '';
@@ -115,7 +115,7 @@
 		                @endforeach
 		                <div class="form-group">
 		                    {{ Form::label('interpretation', trans('messages.interpretation')) }}
-		                    {{ Form::textarea('interpretation', $test->interpretation, 
+		                    {{ Form::textarea('interpretation', $test->interpretation,
 		                        array('class' => 'form-control result-interpretation', 'rows' => '2')) }}
 		                </div>
 		                <div class="form-group actions-row" align="left">
@@ -152,7 +152,7 @@
 										<tr>
 											<td>{{ Culture::showTimeAgo(date('Y-m-d H:i:s')) }}</td>
 											<td>{{ Auth::user()->name }}</td>
-											<td>{{ Form::textarea('observation', '', 
+											<td>{{ Form::textarea('observation', '',
 					                        	array('class' => 'form-control result-interpretation', 'rows' => '2', 'id' => 'observation_'.$test->id)) }}
 					                        </td>
 											<td><a class="btn btn-xs btn-success" href="javascript:void(0)" onclick="saveObservation(<?php echo $test->id; ?>, <?php echo Auth::user()->id; ?>, <?php echo "'".Auth::user()->name."'"; ?>)">
@@ -163,7 +163,7 @@
 										<tr>
 											<td>{{ Culture::showTimeAgo(date('Y-m-d H:i:s')) }}</td>
 											<td>{{ Auth::user()->name }}</td>
-											<td>{{ Form::textarea('observation', $test->interpretation, 
+											<td>{{ Form::textarea('observation', $test->interpretation,
 					                        	array('class' => 'form-control result-interpretation', 'rows' => '2', 'id' => 'observation_'.$test->id)) }}
 					                        </td>
 											<td><a class="btn btn-xs btn-success" href="javascript:void(0)" onclick="saveObservation(<?php echo $test->id; ?>, <?php echo Auth::user()->id; ?>, <?php echo "'".Auth::user()->name."'"; ?>)">
@@ -177,10 +177,10 @@
 							<div class="form-group">
 								<div class="form-pane panel panel-default">
 									<div class="container-fluid">
-										<?php 
+										<?php
 											$cnt = 0;
 											$zebra = "";
-											$checked=""; 
+											$checked="";
 											$susOrgIds = array();
 											$defaultZone='';
 											$defaultInterp='';
@@ -202,6 +202,7 @@
 								</div>
 							</div>
 							@foreach($test->testType->organisms as $key=>$value)
+							<!-- Review test logic for organism count  -->
                                 {{--*/$checker = 0/*--}}
                                 @if(count($test->susceptibility)>0)
                                     <?php
@@ -290,7 +291,7 @@
 	                                    	{{$test->specimen->id or trans('messages.pending') }}</p>
 	                                    <p class="view"><strong>{{trans('messages.specimen-status')}}</strong>
 	                                        {{trans('messages.'.$test->specimen->specimenStatus->name) }}</p>
-	                                
+
 	                            		@if($test->specimen->isRejected())
 	                                        <p class="view"><strong>{{trans('messages.rejection-reason-title')}}</strong>
 	                                        	{{$test->specimen->rejectionReason->reason or trans('messages.pending') }}</p>

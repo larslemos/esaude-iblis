@@ -7,11 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta content="" name="description"/>
         <meta content="" name="author"/>
-        <link href="{!! asset('css/vendor.css') !!}" rel="stylesheet">
-        <link href="{!! asset('css/style.css') !!}" rel="stylesheet">
-        <link href="{!! asset('css/bootstrap.css') !!}" rel="stylesheet">
-        <link href="{!! asset('css/font.css') !!}" rel="stylesheet">
-        <link href="{!! asset('css/custom.css') !!}" rel="stylesheet">
+        <link href="{!! asset('css/vendor.css', true) !!}" rel="stylesheet">
+        <link href="{!! asset('css/style.css', true) !!}" rel="stylesheet">
+        <link href="{!! asset('css/bootstrap.css', true) !!}" rel="stylesheet">
+        <link href="{!! asset('css/font.css', true) !!}" rel="stylesheet">
+        <link href="{!! asset('css/custom.css', true) !!}" rel="stylesheet">
     </head>
     <body class="page-header-fixed page-quick-sidebar-over-content ">
     <div class="back">
@@ -19,17 +19,17 @@
             <div class="login-wrap">
                 <div class="login-right striped-bg">
                     <div class="row">
-                        <div class="col-md-12 col-sm-offset-3">
-                            <img src="{!! Config::get('blis.organization-logo') !!}" height="60px" align="center">
+                        <div class="col-md-9 col-sm-offset-3">
+                            <img src="{!! Config::get('blis.organization-logo') !!}" height="90px" weight="300px" align="center">
                         </div>
                     </div>
                     <div class="heading col-sm-offset-1">{!! Config::get('blis.organization') !!}</div>
                     <div class="row">
-                        <div class="col-md-12 col-sm-offset-1">                            
+                        <div class="col-md-12 col-sm-offset-1">
                             @if($errors)
                                 @if (count($errors) > 0)
                                 <div class="alert alert-danger col-sm-10">
-                                    <ul class="list-unstyled"> 
+                                    <ul class="list-unstyled">
                                         @foreach ($errors->all() as $error)
                                             <li>{!! $error !!}</li>
                                         @endforeach
@@ -87,6 +87,6 @@
                 </div>
             </div>
         </div>
-        <script src="{!! asset('js/vendor.js') !!}"></script>
+        <script src="{!! asset('js/vendor.js', true) !!}"></script>
     </body>
 </html>

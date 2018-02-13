@@ -1,11 +1,11 @@
 <?php
-/** 
+/**
  *   To aid quick referencing, keep entries in the same section ALPHABETICALLY ORDERED
  */
 
 return [
 
-    /** 
+    /**
      *   Generic names
      */
 
@@ -57,7 +57,7 @@ return [
     'edit'  =>  'Edit',
     'reorder' => 'Reorder',
 
-    /** 
+    /**
      *   Generic phrases
      */
     'confirm-delete-title' => 'Confirm Delete',
@@ -65,7 +65,7 @@ return [
     'confirm-delete-irreversible' => 'This action is irreversible.',
     'court-of-arms' => 'Court of Arms',
 
-    /** 
+    /**
      *   User
      */
     'create-user' => 'Create User',
@@ -88,7 +88,7 @@ return [
     'user-details' => 'User Details',
     'user-profile-edit-success' => 'The user details were successfully updated!',
 
-    /** 
+    /**
      *  Patient
      */
 
@@ -112,8 +112,8 @@ return [
     'physical-address' => 'Physical Address',
     'next-button' => 'Next',
     'cancel-button' => 'Cancel',
-    
-    /** 
+
+    /**
      *   Specimen
      */
     'not-paid' => 'Not Paid',
@@ -126,7 +126,7 @@ return [
     'list-specimen-types' => 'List Specimen Types',
     'new-specimen-type' => 'New Specimen Type',
     'reject' => 'Reject',
-    'reject-explained-to' => 'Person Talked To',
+    'reject-explained-to' => 'Rejected By',
     'reject-title' => 'Reject Specimen',
     'rejection-reason' => 'Reason',
     'rejection-reason-title' => 'Rejection Reason',
@@ -157,7 +157,7 @@ return [
     'referred-by' => 'Referred by',
     'recieved-by' => 'Recieved by',
 
-    /** 
+    /**
      *   Test Catalog
      */
     /*Measure*/
@@ -198,7 +198,7 @@ return [
     'success-updating-specimen-type' => 'The specimen type details were successfully updated!',
 
     /*Specimen Rejection*/
-    
+
     'add-rejection-reason' => 'Add New Rejection Reason',
     'edit-rejection-reason' => ' Edit Rejection Reason',
     'failure-specimen-rejection-reason-in-use' => 'This Rejection Reason is in Use',
@@ -218,7 +218,7 @@ return [
     'test-category' => 'Lab Section|Lab Sections',
     'test-category-details' => 'Lab Section Details',
     'list-test-categories' => 'List Lab Sections',
-    'profile' => 'Profile',
+    'profile' => 'Lab Sections',
 
     /* Test Types*/
 
@@ -330,12 +330,12 @@ return [
     'visit-number' => 'Test order.',
     'visit-type' => 'Visit Type',
     'previous-results' => 'Previous results',
-    'provenience' => 'Provenience',
+    'provenience' => 'Referred from',
     'current-result' => 'Current result',
     'audit-report' => 'Audit Report',
     'entered-by' => 'Entered by',
 
-    /** 
+    /**
      *   Tests search panel
      */
     'empty-search' => 'Your search did not match any test record!',
@@ -357,7 +357,7 @@ return [
     'success-verifying-results' => 'The results have been successfully verified!',
     'test-results' => 'Results',
 
-    /** 
+    /**
      *   Access Controls
      */
 
@@ -376,7 +376,7 @@ return [
     'success-updating-role' => 'Roles successfully updated!',
     'user-accounts' => 'User Accounts',
 
-    /** 
+    /**
      *   Reports
      */
     'aggregate-reports' => 'Aggregate Reports',
@@ -461,7 +461,7 @@ return [
     'weekly'    =>  'Weekly',
     'daily' =>  'Daily',
 
-    /* Usage Statistics Reports*/ 
+    /* Usage Statistics Reports*/
     'accepted-specimen' => 'Specimen Collected',
     'no-data-found' => 'No data available!',
     'performed-tests' => 'Tests Performed',
@@ -479,16 +479,16 @@ return [
     'user-statistics-tests-register-report-title' => 'Tests Registered (Period: [FROM] - [TO] [USER])',
     'verified-tests' => 'Tests Verified',
 
-     /* Inventory Reports*/ 
+     /* Inventory Reports*/
     'inventory-reports' => 'Inventory Reports',
     'stock-levels' => 'Stock Levels',
     'stock-level-report' => 'Stock Level Report',
     'monthly-stock-level-report-title' => 'Monthly Stock Levels (Period: [FROM] - [TO])',
     'quarterly-stock-level-report-title' => 'Quarterly Stock Levels (Period: [FROM] - [TO] )',
-    
- 
 
-    /** 
+
+
+    /**
      *   Configurations
      */
     'add-facility' => 'Add a facility',
@@ -535,7 +535,7 @@ return [
     'supported-test-types' => 'Supported Tests',
     'unwriteable-destination-folder' => 'Unable to write to the plugins folder',
 
-    /** 
+    /**
      *   Dates
      */
     'year' => 'Year|Years',
@@ -544,8 +544,8 @@ return [
     'hour' => 'Hour|Hours',
     'minute' => 'Minute|Minutes',
     'second' => 'Second|Seconds',
-  
-    /** 
+
+    /**
      *   Inventory
      */
     'inventory'     =>  'Inventory',
@@ -618,16 +618,16 @@ return [
     'success-deleting-control' => 'The Control has been successfully deleted',
     'success-adding-control-result' => 'The control results have been succesfully added',
 
-    /** 
+    /**
      *   MOH 706 report
      */
-    'moh-706'   =>  'MOH 706',
+    'moh-706'   =>  'MOH',
     'moh'   =>  'Ministry of Health',
     'lab-tests-data-report'  =>  'Laboratory Tests Data Summary Report Form',
     'affiliation'   =>  'Affiliation',
     'reporting-period'  =>  'Reporting Period',
     'begin-end' =>  'Begining|Ending',
-    /** 
+    /**
      *   Controls
      */
     'gok'   =>  'GOK',
@@ -676,7 +676,7 @@ return [
     'baseline'  =>  'Baseline',
     'follow-up' =>  'Follow Up',
     'cd4-less'  =>  '< 500',
-    'cd4-greater'   =>  '> 500',   
+    'cd4-greater'   =>  '> 500',
     /**
     * Generic messages
     */
@@ -727,4 +727,3 @@ return [
     'date-collected'  =>    'Date Collected',
     'blood-details'   =>    'Blood Details',
 ];
-

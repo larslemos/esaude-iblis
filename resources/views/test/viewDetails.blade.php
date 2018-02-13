@@ -248,7 +248,7 @@
 											<p><strong>{{ $result->measure->name }}</strong></p>
 										</div>
 										<div class="col-md-3">
-											{{$result->result}}	
+											{{$result->result}}
 										</div>
 										<div class="col-md-5">
 	        								{{ $result->measure->getRange($test->visit->patient, $result->measure_id) }}
@@ -292,7 +292,7 @@
                     <p><strong>{{trans("messages.culture-work-up")}}</strong></p>
                     <table class="table table-bordered">
                         <thead>
-                            
+
                         </thead>
                         <tbody id="tbbody">
                         	<tr>

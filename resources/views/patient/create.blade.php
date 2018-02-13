@@ -14,7 +14,7 @@
 		</div>
 		<div class="panel-body">
 		<!-- if there are creation errors, they will show here -->
-			
+
 			@if($errors->all())
 				<div class="alert alert-danger">
 					{{ HTML::ul($errors->all()) }}
@@ -32,7 +32,7 @@
 				</div>
 				<div class="form-group">
 					{{ Form::label('dob', trans('messages.date-of-birth')) }}
-					{{ Form::text('dob', Input::old('dob'), 
+					{{ Form::text('dob', Input::old('dob'),
 						array('class' => 'form-control standard-datepicker')) }}
 				</div>
 				<div class="form-group">
@@ -56,11 +56,11 @@
 				</div> -->
 				<div class="form-group" align="right">
 					<a href="{{url('patient')}}" class="btn"><span class="glyphicon glyphicon-remove"></span> {{trans('messages.cancel-button')}}</a>
-					{{ Form::button(trans('messages.next-button').' <span class="glyphicon glyphicon-arrow-right"></span>', 
+					{{ Form::button(trans('messages.next-button').' <span class="glyphicon glyphicon-arrow-right"></span>',
 						['class' => 'btn btn-primary', 'onclick' => 'submit()']) }}
 				</div>
 
 			{{ Form::close() }}
 		</div>
 	</div>
-@stop	
+@stop

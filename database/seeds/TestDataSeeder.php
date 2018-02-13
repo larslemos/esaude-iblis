@@ -87,7 +87,7 @@ class TestDataSeeder  extends Seeder
             "name" => "A. Abumeyang",
             "designation" => "Lab Administrator",
         ]);
-        
+
 
         /* Specimen Types table */
         $specTypesData = array(
@@ -121,14 +121,14 @@ class TestDataSeeder  extends Seeder
             $specTypes[] = SpecimenType::create($specimenType);
         }
         $this->command->info('specimen_types seeded');
-        
+
         /* Test Categories table - These map on to the lab sections */
         $test_categories = TestCategory::create(array("name" => "PARASITOLOGY","description" => ""));
         $lab_section_microbiology = TestCategory::create(array("name" => "MICROBIOLOGY","description" => ""));
 
         $this->command->info('test_categories seeded');
-        
-        
+
+
         /* Measure Types */
         $measureTypes = array(
             array("id" => "1", "name" => "Numeric Range"),
@@ -142,11 +142,11 @@ class TestDataSeeder  extends Seeder
             MeasureType::create($measureType);
         }
         $this->command->info('measure_types seeded');
-                
+
         /* Measures table */
         $measureBSforMPS = Measure::create(
             array("measure_type_id" => "2",
-                "name" => "BS for mps", 
+                "name" => "BS for mps",
                 "unit" => ""));
         $measure1 = Measure::create(array("measure_type_id" => "2", "name" => "Grams stain", "unit" => ""));
         $measure2 = Measure::create(array("measure_type_id" => "2", "name" => "SERUM AMYLASE", "unit" => ""));
@@ -155,12 +155,12 @@ class TestDataSeeder  extends Seeder
         $measure5 = Measure::create(array("measure_type_id" => "2", "name" => "Indirect COOMBS test", "unit" => ""));
         $measure6 = Measure::create(array("measure_type_id" => "2", "name" => "Direct COOMBS test", "unit" => ""));
         $measure7 = Measure::create(array("measure_type_id" => "2", "name" => "Du test", "unit" => ""));
-        
+
         MeasureRange::create(array("measure_id" => $measureBSforMPS->id, "alphanumeric" => "No mps seen", "interpretation" => "Negative"));
         MeasureRange::create(array("measure_id" => $measureBSforMPS->id, "alphanumeric" => "+", "interpretation" => "Positive"));
         MeasureRange::create(array("measure_id" => $measureBSforMPS->id, "alphanumeric" => "++", "interpretation" => "Positive"));
         MeasureRange::create(array("measure_id" => $measureBSforMPS->id, "alphanumeric" => "+++", "interpretation" => "Positive"));
-        
+
         MeasureRange::create(array("measure_id" => $measure1->id, "alphanumeric" => "Negative"));
         MeasureRange::create(array("measure_id" => $measure1->id, "alphanumeric" => "Positive"));
 
@@ -175,7 +175,7 @@ class TestDataSeeder  extends Seeder
         MeasureRange::create(array("measure_id" => $measure4->id, "alphanumeric" => "High"));
         MeasureRange::create(array("measure_id" => $measure4->id, "alphanumeric" => "Low"));
         MeasureRange::create(array("measure_id" => $measure4->id, "alphanumeric" => "Normal"));
-        
+
         MeasureRange::create(array("measure_id" => $measure5->id, "alphanumeric" => "Positive"));
         MeasureRange::create(array("measure_id" => $measure5->id, "alphanumeric" => "Negative"));
 
@@ -210,7 +210,7 @@ class TestDataSeeder  extends Seeder
         $measureGXM = Measure::create(array("measure_type_id" => "4", "name" => "GXM", "unit" => ""));
         $measureBG = Measure::create(
             array("measure_type_id" => "2",
-                "name" => "Blood Grouping", 
+                "name" => "Blood Grouping",
                 "unit" => ""));
         MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "O-"));
         MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "O+"));
@@ -219,8 +219,8 @@ class TestDataSeeder  extends Seeder
         MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "B-"));
         MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "B+"));
         MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "AB-"));
-        MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "AB+"));        
-        $measureHB = Measure::create(array("measure_type_id" => Measure::NUMERIC, "name" => "HB", 
+        MeasureRange::create(array("measure_id" => $measureBG->id, "alphanumeric" => "AB+"));
+        $measureHB = Measure::create(array("measure_type_id" => Measure::NUMERIC, "name" => "HB",
             "unit" => "g/dL"));
 
         $measuresUrinalysisData = array(
@@ -249,7 +249,7 @@ class TestDataSeeder  extends Seeder
         }
 
         $measuresWBCData = array(
-            array("measure_type_id" => Measure::NUMERIC, "name" => "WBC", 
+            array("measure_type_id" => Measure::NUMERIC, "name" => "WBC",
                 "unit" => "x10³/µL"),
             array("measure_type_id" => Measure::NUMERIC, "name" => "Lym", "unit" => "L"),
             array("measure_type_id" => Measure::NUMERIC, "name" => "Mon", "unit" => "*"),
@@ -282,7 +282,7 @@ class TestDataSeeder  extends Seeder
         }
 
         $this->command->info('measures seeded');
-        
+
         /* Test Types table */
         $testTypeBS = TestType::create(array("name" => "BS for mps", "test_category_id" => $test_categories->id, "orderable_test" => 1));
         $testTypeStoolCS = TestType::create(array("name" => "Stool for C/S", "test_category_id" => $lab_section_microbiology->id));
@@ -383,8 +383,8 @@ class TestDataSeeder  extends Seeder
         $this->command->info('specimen_statuses seeded');
 
         /* Visits table */
-        
-        for ($i=0; $i < 7; $i++) { 
+
+        for ($i=0; $i < 7; $i++) {
             $visits[] = Visit::create(array("patient_id" => $patients[rand(0,count($patients)-1)]->id));
         }
         $this->command->info('visits seeded');
@@ -433,7 +433,7 @@ class TestDataSeeder  extends Seeder
         $this->command->info('rejection_reasons seeded');
 
         /* Specimen table */
-       
+
         $this->command->info('specimens seeded');
         $now = new DateTime();
 
@@ -450,8 +450,8 @@ class TestDataSeeder  extends Seeder
                 "requested_by" => "Dr. Abou Meyang",
                 "created_by" => $userTechnologist->id,
             )
-        );        
-        
+        );
+
         Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
@@ -464,8 +464,8 @@ class TestDataSeeder  extends Seeder
                 "requested_by" => "Dr. Abou Meyang",
                 "created_by" => $userTechnologist->id,
             )
-        );        
-        
+        );
+
         Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
@@ -478,8 +478,8 @@ class TestDataSeeder  extends Seeder
                 "requested_by" => "Dr. Abou Meyang",
                 "created_by" => $userTechnologist->id,
             )
-        );        
-        
+        );
+
         Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
@@ -492,15 +492,15 @@ class TestDataSeeder  extends Seeder
                 "created_by" => $userTechnologist->id,
                 "requested_by" => "Dr. Abou Meyang",
             )
-        );        
-        
+        );
+
         $test_gxm_accepted_completed = Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeGXM->id,
                 "specimen_id" => $this->createSpecimen(
-                        Test::COMPLETED, Specimen::ACCEPTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::COMPLETED, Specimen::ACCEPTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id),
                 "interpretation" => "Perfect match.",
                 "test_status_id" => Test::COMPLETED,
@@ -517,8 +517,8 @@ class TestDataSeeder  extends Seeder
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeHB->id,
                 "specimen_id" => $this->createSpecimen(
-                        Test::COMPLETED, Specimen::ACCEPTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::COMPLETED, Specimen::ACCEPTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id),
                 "interpretation" => "Do nothing!",
                 "test_status_id" => Test::COMPLETED,
@@ -535,7 +535,7 @@ class TestDataSeeder  extends Seeder
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeGXM->id,
                 "specimen_id" => $this->createSpecimen(
-                    Test::STARTED, Specimen::ACCEPTED, SpecimenType::all()->last()->id, 
+                    Test::STARTED, Specimen::ACCEPTED, SpecimenType::all()->last()->id,
                     $userTechnologist->id),
                 "test_status_id" => Test::STARTED,
                 "requested_by" => "Dr. Abou Meyang",
@@ -549,8 +549,8 @@ class TestDataSeeder  extends Seeder
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeBS->id,//BS for MPS
                 "specimen_id" => $this->createSpecimen(
-                        Test::COMPLETED, Specimen::ACCEPTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::COMPLETED, Specimen::ACCEPTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id),
                 "interpretation" => "Positive",
                 "test_status_id" => Test::COMPLETED,
@@ -560,15 +560,15 @@ class TestDataSeeder  extends Seeder
                 "time_started" => $now->format('Y-m-d H:i:s'),
                 "time_completed" => $now->add(new DateInterval('PT7M34S'))->format('Y-m-d H:i:s'),
             )
-        );        
-        
+        );
+
         $tests_accepted_verified = Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeBS->id,//BS for MPS
                 "specimen_id" => $this->createSpecimen(
-                        Test::VERIFIED, Specimen::ACCEPTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::VERIFIED, Specimen::ACCEPTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id),
                 "interpretation" => "Very high concentration of parasites.",
                 "test_status_id" => Test::VERIFIED,
@@ -580,15 +580,15 @@ class TestDataSeeder  extends Seeder
                 "time_completed" => $now->add(new DateInterval('PT5M17S'))->format('Y-m-d H:i:s'),
                 "time_verified" => $now->add(new DateInterval('PT112M33S'))->format('Y-m-d H:i:s'),
             )
-        );        
-        
+        );
+
         $tests_rejected_pending = Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeBS->id,//BS for MPS
                 "specimen_id" => $this->createSpecimen(
-                        Test::PENDING, Specimen::REJECTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::PENDING, Specimen::REJECTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id,
                         $userTechnologist->id,
                         $rejection_reasons[rand(0,count($rejection_reasons)-1)]->id),
@@ -597,7 +597,7 @@ class TestDataSeeder  extends Seeder
                 "created_by" => $userTechnologist->id,
                 "time_started" => $now->format('Y-m-d H:i:s'),
             )
-        );        
+        );
 
         //  WBC Started
         Test::create(
@@ -612,15 +612,15 @@ class TestDataSeeder  extends Seeder
                 "requested_by" => "Fred Astaire",
                 "created_by" => $userTechnologist->id,
             )
-        );        
-        
+        );
+
         $tests_rejected_started = Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeBS->id,//BS for MPS
                 "specimen_id" => $this->createSpecimen(
-                        Test::STARTED, Specimen::REJECTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::STARTED, Specimen::REJECTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id,
                         $userTechnologist->id,
                         $rejection_reasons[rand(0,count($rejection_reasons)-1)]->id),
@@ -630,14 +630,14 @@ class TestDataSeeder  extends Seeder
                 "time_started" => $now->format('Y-m-d H:i:s'),
             )
         );
-        
+
         $tests_rejected_completed = Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeBS->id,//BS for MPS
                 "specimen_id" => $this->createSpecimen(
-                        Test::COMPLETED, Specimen::REJECTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::COMPLETED, Specimen::REJECTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id,
                         $userTechnologist->id,
                         $rejection_reasons[rand(0,count($rejection_reasons)-1)]->id),
@@ -663,8 +663,8 @@ class TestDataSeeder  extends Seeder
                 "requested_by" => "Dr. Abou Meyang",
                 "created_by" => $userTechnologist->id,
             )
-        );        
-        
+        );
+
         Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
@@ -677,15 +677,15 @@ class TestDataSeeder  extends Seeder
                 "requested_by" => "Dr. Abou Meyang",
                 "created_by" => $userTechnologist->id,
             )
-        );        
-        
+        );
+
         $test_urinalysis_accepted_completed = Test::create(
             array(
                 "visit_id" => $visits[rand(0,count($visits)-1)]->id,
                 "test_type_id" => $testTypeUrinalysis->id,
                 "specimen_id" => $this->createSpecimen(
-                        Test::COMPLETED, Specimen::ACCEPTED, 
-                        SpecimenType::all()->last()->id, 
+                        Test::COMPLETED, Specimen::ACCEPTED,
+                        SpecimenType::all()->last()->id,
                         $userTechnologist->id),
                 "interpretation" => "Whats this !!!! ###%%% ^ *() /",
                 "test_status_id" => Test::COMPLETED,
@@ -747,7 +747,7 @@ class TestDataSeeder  extends Seeder
         }
         $this->command->info('test results seeded');
 
-        
+
         /* Permissions table */
         $permissions = array(
             array("name" => "view_names", "display_name" => "Can view patient names"),
@@ -809,91 +809,91 @@ class TestDataSeeder  extends Seeder
             "ip" => "192.168.1.12",
             "hostname" => "HEMASERVER"
         );
-        
+
         $instrument = Instrument::create($instrumentsData);
         $instrument->testTypes()->attach(array($testTypeWBC->id));
 
         $this->command->info('Instruments table seeded');
 
 
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596699,"parentLabNo":0,"requestingClinician":"frankenstein Dr",
         "investigation":"Urinalysis","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596700,"parentLabNo":596699,"requestingClinician":"frankenstein Dr",
         "investigation":"Urine microscopy","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596701,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"Pus cells","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596702,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"S. haematobium","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596703,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"T. vaginalis","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596704,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"Yeast cells","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596705,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"Red blood cells","requestDate":"2014-10-14 10:20:35","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596706,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"Bacteria","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596707,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"Spermatozoa","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596708,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"Epithelial cells","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596709,"parentLabNo":596700,"requestingClinician":"frankenstein Dr",
         "investigation":"ph","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596710,"parentLabNo":596699,"requestingClinician":"frankenstein Dr",
         "investigation":"Urine chemistry","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596711,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"Glucose","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596712,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"Ketones","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596713,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"Proteins","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596714,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"Blood","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596715,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"Bilirubin","requestDate":"2014-10-14 10:20:36","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596716,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"Urobilinogen Phenlpyruvic acid","requestDate":"2014-10-14 10:20:37","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
-        $labRequestUrinalysis[] = 
+        $labRequestUrinalysis[] =
             json_decode('{"cost":null,"receiptNumber":null,"receiptType":null,"labNo":596717,"parentLabNo":596710,"requestingClinician":"frankenstein Dr",
         "investigation":"pH","requestDate":"2014-10-14 10:20:37","orderStage":"ip","patientVisitNumber":643660,"patient":{"id":326983,
         "fullName":"Macau Macau","dateOfBirth":"1996-10-09 00:00:00","gender":"Female"},"address":{"address":null,"postalCode":null,"phoneNumber":"","city":null}}');
 
-         for ($i=0; $i < count($labRequestUrinalysis); $i++) { 
+         for ($i=0; $i < count($labRequestUrinalysis); $i++) {
 
             $dumper = new ExternalDump();
             $dumper->lab_no = $labRequestUrinalysis{$i}->labNo;
@@ -944,28 +944,28 @@ class TestDataSeeder  extends Seeder
         $this->command->info('Test Types seeded');
 
         /* Test Types and specimen types relationship for prevalence */
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_salmonella->id, "13"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_direct->id, "23"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_du->id, "23"));
-         DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+         DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_sickling->id, "23"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_borrelia->id, "23"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_vdrl->id, "13"));
-         DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+         DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_pregnancy->id, "20"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_brucella->id, "13"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($test_types_pylori->id, "13"));
-        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)', 
+        DB::insert('INSERT INTO testtype_specimentypes (test_type_id, specimen_type_id) VALUES (?, ?)',
             array($testTypeStoolCS->id, "16"));
         $this->command->info('TestTypes/SpecimenTypes seeded');
-        
+
         /*New measures for prevalence*/
         $measure_salmonella = Measure::create(array("measure_type_id" => "2", "name" => "Salmonella Antigen Test", "unit" => ""));
         $measure_direct = Measure::create(array("measure_type_id" => "2", "name" => "Direct COOMBS Test", "unit" => ""));
@@ -1148,8 +1148,8 @@ class TestDataSeeder  extends Seeder
                 "time_started" => "2014-10-21 19:17:15",
                 "time_completed" => "2014-10-21 19:52:40",
             )
-        );     
-        
+        );
+
         $tests_verified_one = Test::create(
             array(
                 "visit_id" => "3",
@@ -1423,7 +1423,7 @@ class TestDataSeeder  extends Seeder
                 "measure_id" => $measure_pregnancy->id,
                 "result" => "Positive",
             ),
-        );        
+        );
         foreach ($results as $result)
         {
             TestResult::create($result);
@@ -1433,12 +1433,9 @@ class TestDataSeeder  extends Seeder
 
         //Seed for facilities
         $facilitiesSeed = array(
-            array('name' => "WALTER REED"),
-            array('name' => "AGA KHAN UNIVERSITY HOSPITAL"),
-            array('name' => "TEL AVIV GENERAL HOSPITAL"),
-            array('name' => "GK PRISON DISPENSARY"),
-            array('name' => "KEMRI ALUPE"),
-            array('name' => "AMPATH")
+            array('name' => "HOSPITAL CENTRAL MAPUTO"),
+            array('name' => "HOSPITAL JOSE MACAMO "),
+            array('name' => "HOSPITAL MAVALANE")
         );
 
         foreach ($facilitiesSeed as $facility) {
@@ -1504,8 +1501,8 @@ Nairobi, Kenya.",
 
         //Control seeding
         $controls = array(
-            array('name'=>'Humatrol P', 
-                    'description' =>'HUMATROL P control serum has been designed to provide a suitable basis for the quality control (imprecision, inaccuracy) in the clinical chemical laboratory.', 
+            array('name'=>'Humatrol P',
+                    'description' =>'HUMATROL P control serum has been designed to provide a suitable basis for the quality control (imprecision, inaccuracy) in the clinical chemical laboratory.',
                     'instrument_id' => 1),
             array('name'=>'Full Blood Count', 'description' => 'Né pas touchér', 'instrument_id' => 1,)
             );
@@ -1650,7 +1647,7 @@ Nairobi, Kenya.",
                 array('results' => '30.2', 'control_measure_id' => 12, 'control_test_id' => 9, 'user_id'=> 1, 'created_at'=>date('Y-m-d', strtotime('-2 days'))),
                 array('results' => '121.5','control_measure_id' =>  13, 'control_test_id' => 9, 'user_id'=> 1, 'created_at'=>date('Y-m-d', strtotime('-2 days'))),
             );
-        
+
         foreach ($controlResults as $controlResult) {
             ControlMeasureResult::create($controlResult);
         }
@@ -1676,7 +1673,7 @@ Nairobi, Kenya.",
             $values["rejection_reason_id"] = $rejectReason;
             $values["time_rejected"] = date('Y-m-d H:i:s');
         }
-        
+
         $specimen = Specimen::create($values);
 
         return $specimen->id;

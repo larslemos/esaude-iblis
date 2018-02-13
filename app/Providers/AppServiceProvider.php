@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('non_zero_key', function($attribute, $value, $parameters, $validator) {
             return ($value!=0) ? true : false;
         });
+        
     }
 
     /**

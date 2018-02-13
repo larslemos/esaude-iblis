@@ -46,7 +46,7 @@
 									<!-- <span><strong>{{ trans_choice('messages.name',1) }}</strong> {{ $patient->name }}</span> -->
 									<span><strong>{{trans("messages.age")}}</strong> {{ $patient->getAge() }}</span>
 									<span><strong>{{trans("messages.gender")}}</strong>
-										{{ $patient->gender==0?trans("messages.male"):trans("mess	ages.female") }}</span>
+										{{ $patient->gender==0?trans("messages.male"):trans("messages.female") }}</span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -87,7 +87,7 @@
 										<tr>
 											<th>{{ trans_choice('messages.test',2) }}</th>
 											<th>{{ trans('messages.actions') }}</th>
-														
+
 										</tr>
 									</thead>
 									<tbody>
@@ -107,7 +107,7 @@
 					@endforeach
 
 					<div class="form-group" align="right">
-					{{ Form::button("<span class='glyphicon glyphicon-arrow-right'></span> ".trans('messages.save-test'), 
+					{{ Form::button("<span class='glyphicon glyphicon-arrow-right'></span> ".trans('messages.save-test'),
 						array('class' => 'btn btn-primary', 'onclick' => 'submit()', 'alt' => 'save_new_test')) }}
 					</div>
 				</div>
@@ -115,4 +115,4 @@
 			{{ Form::close() }}
 		</div>
 	</div>
-@stop	
+@stop

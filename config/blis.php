@@ -9,7 +9,7 @@ return array(
 	*/
 
 	'name' => 'BLIS',
-	
+
 	/*
 	|--------------------------------------------------------------------------
 	|	Application Version
@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'country' => 'Kenya',
+	'country' => 'Mozambique',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return array(
 	*/
 
 	'organization' => 'Basic Laboratory Information System',
-	
+
 
 
 	/*
@@ -50,9 +50,9 @@ return array(
 	'address-info' => 'COUNTY REFERRAL HOSPITAL, BLIS<br>
                     REFERRAL HOSPITAL LOCATION<br>
                     P.O. BOX PRIVATE BAG,<br>
-                    KENYA.<br>
-                    Phone: +0000000 Ext 203/208</p>',
-	
+                    Mozambique.<br>
+                    Phone: +0000000 Ext 258</p>',
+
 	/*
 	|--------------------------------------------------------------------------
 	|	Organization Logo
@@ -60,8 +60,8 @@ return array(
 	|
 	*/
 
-	'organization-logo' => '../i/iLabAfrica_Logo.png',
-	
+	'organization-logo' => '../i/esaude_poc_logo.png',
+
 	/*
 	|--------------------------------------------------------------------------
 	|	Pagination: Items to show per page
@@ -76,7 +76,7 @@ return array(
 	|	Sanitas inbound results URL
 	*/
 	'sanitas-url' => 'localhost',
-	
+
 	/*
 	|--------------------------------------------------------------------------
 	|	Limit: Maximum number of items to return (Use in patient search)
@@ -91,7 +91,7 @@ return array(
 	|
 	*/
 
-	'kenas-logo' => '/i/kenas_logo.png',
+	'kenas-logo' => '/i/w.png',
 	/*
 	|--------------------------------------------------------------------------
 	|	iLabAfrica URL
